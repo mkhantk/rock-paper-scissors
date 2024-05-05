@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock-paper-scissors</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice () {
+            // get 3 random number
+            const pc = Math.floor(Math.random() * 3) + 1;
+            // console.log(pc)
+            // assign them with rock paper sccisors 
+            if (pc === 1) {
+                let result = "rock";
+                return result
+            } else if (pc === 2) {
+                let result = "paper";
+                return result
+            } else {
+                let result = "scissors";
+                return result
+            }
+            // return as result  
+        }
+
+        function getHumanChoice () {
+            // ask the user 
+            let human = Number(prompt("choose your poison! \n 1) rock 2) paper 3) scissors"));
+            // console.log(human)
+            // convert the number to rock paper scissors 
+            // retun as result 
+            if (human === 1) {
+                let hresult = "rock";
+                return hresult
+            } else if (human === 2) {
+                let hresult = "paper"
+                return hresult
+            } else if (human === 3){
+                let hresult = "scissors"
+                return hresult
+            } else {
+                alert("wrong number");
+            }
+            // console.log(hresult)
+
+        }
+
+        
+
+        // make a function with human and computer choice as argument
+        // then make condition for the game like rock beat scissor beat paper etc
+        function playRound (humanChoice,computerChoice) {
+            if (humanChoice === "rock") {
+                if (computerChoice === "scissors") {
+                    humanScore++
+                    alert("You win!");
+
+                } else if (computerChoice === "paper") {
+                    computerScore++
+                    alert("You lose");
+                } else {
+                    alert("Draw! Choose again")
+                }
+            } else if (humanChoice === "paper") {
+                if (computerChoice === "rock") {
+                    humanScore++
+                    alert("You win!");
+
+                } else if (computerChoice === "scissors") {
+                    computerScore++
+                    alert("You lose");
+                } else {
+                    alert("Draw! Choose again")
+                }
+            } else if (humanChoice === "scissors") {
+                if (computerChoice === "paper") {
+                    humanScore++
+                    alert("You win!");
+
+                } else if (computerChoice === "rock") {
+                    computerScore++
+                    alert("You lose");
+                } else {
+                    alert("Draw! Choose again");
+                }
+
+            } else {
+                alert ("pick again!");
+            }
+        }
+        
+
+        let humanScore = 0;
+        let computerScore = 0;
+        // playRound(humanSelection,computerSelection)
+
+        function playGame () {
+           
+
+            for (let i = 1; i < 6; i++) {
+                let humanSelection = getHumanChoice();
+                let computerSelection = getComputerChoice();
+        
+                playRound(humanSelection,computerSelection);
+            }
+            alert("final score >> "+"you "+humanScore+": "+computerScore+" computer")
+
+        }
+
+        playGame()
+        
+
+    
+    </script>
+</body>
+</html>
