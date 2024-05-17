@@ -1,0 +1,29 @@
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    width: 60%;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.btn {
+    display: flex;
+    gap: 10px;
+    
+}
+button {
+    padding: 15px;
+    border-radius: 15px;
+    
+}

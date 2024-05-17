@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rock-paper-scissors</title>
+    <link rel="stylesheet" href="sytle.css">
 </head>
 <body>
-    <script>
+    <div id="container">
+        <div class="btn">
+            <button id="rock">rock</button>
+            <button id="paper">paper</button>
+            <button id="scissors">scissors</button>
+        </div>
+    </div>
+
+    <script defer>
         function getComputerChoice () {
             // get 3 random number
             const pc = Math.floor(Math.random() * 3) + 1;
@@ -25,27 +34,54 @@
             // return as result  
         }
 
-        function getHumanChoice () {
-            // ask the user 
-            let human = Number(prompt("choose your poison! \n 1) rock 2) paper 3) scissors"));
-            // console.log(human)
-            // convert the number to rock paper scissors 
-            // retun as result 
-            if (human === 1) {
-                let hresult = "rock";
-                return hresult
-            } else if (human === 2) {
-                let hresult = "paper"
-                return hresult
-            } else if (human === 3){
-                let hresult = "scissors"
-                return hresult
-            } else {
-                alert("wrong number");
-            }
-            // console.log(hresult)
+        // function getHumanChoice (choice) {
+        //     // ask the user 
+        //     // let human = Number(prompt("choose your poison! \n 1) rock 2) paper 3) scissors"));
+        //     // console.log(human)
+        //     // convert the number to rock paper scissors 
+        //     // retun as result 
 
-        }
+        //     //with event listener 
+            
+        //     let human = choice;
+        //     if (human === 1) {
+        //         let hresult = "rock";
+        //         return hresult
+        //     } else if (human === 2) {
+        //         let hresult = "paper"
+        //         return hresult
+        //     } else if (human === 3){
+        //         let hresult = "scissors"
+        //         return hresult
+        //     } else {
+        //         alert("wrong number");
+        //     }
+        //     console.log(hresult)
+
+        // }
+        //with event listener
+        //create variables instead of function 
+        const div = document.querySelector("#container");
+        const rockB = document.querySelector("#rock");
+        const paperB = document.querySelector("#paper");
+        const scissorsB = document.querySelector("#scissors");
+
+        rockB.addEventListener("click", () => {
+            getHumanChoice = "rock"
+            // console.log(getHumanChoice);
+            playGame()
+        });
+        paperB.addEventListener("click", () => {
+            getHumanChoice = "paper"
+            // console.log(getHumanChoice);
+            playGame()
+        });
+        scissorsB.addEventListener("click", () => {
+            getHumanChoice = "scissors"
+            // console.log(getHumanChoice);
+            playGame()
+        });
+
 
         
 
@@ -55,35 +91,72 @@
             if (humanChoice === "rock") {
                 if (computerChoice === "scissors") {
                     humanScore++
-                    alert(humanChoice+" vs "+computerChoice+ "\n You win!");
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"You Win!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n");
+                    score.appendChild(runninScore);
+                    // alert(humanChoice+" vs "+computerChoice+ "\n You win!");
+                    
 
                 } else if (computerChoice === "paper") {
                     computerScore++
-                    alert(humanChoice+" vs "+computerChoice+ "\n You lose");
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"You Lose!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
+                    score.appendChild(runninScore);
+                    // alert(humanChoice+" vs "+computerChoice+ "\n You lose");
                 } else {
-                    alert("Draw! Choose again")
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"Draw!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
+                    score.appendChild(runninScore);
+                    // alert("Draw! Choose again")
                 }
             } else if (humanChoice === "paper") {
                 if (computerChoice === "rock") {
                     humanScore++
-                    alert(humanChoice+" vs "+computerChoice+ "\n You win!");
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"You Win!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
+                    score.appendChild(runninScore);
+                    // alert(humanChoice+" vs "+computerChoice+ "\n You win!");
 
                 } else if (computerChoice === "scissors") {
                     computerScore++
-                    alert(humanChoice+" vs "+computerChoice+ "\n You lose");
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"You Lose!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
+                    score.appendChild(runninScore);
+                    // alert(humanChoice+" vs "+computerChoice+ "\n You lose");
                 } else {
-                    alert("Draw! Choose again")
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"Draw!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
+                    score.appendChild(runninScore);
+                    // alert("Draw! Choose again")
                 }
             } else if (humanChoice === "scissors") {
                 if (computerChoice === "paper") {
                     humanScore++
-                    alert(humanChoice+" vs "+computerChoice+ "\n You win!");
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"You Win!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
+                    score.appendChild(runninScore);
+                    // alert(humanChoice+" vs "+computerChoice+ "\n You win!");
 
                 } else if (computerChoice === "rock") {
                     computerScore++
-                    alert(humanChoice+" vs "+computerChoice+ "\n You lose");
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"You Lose!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
+                    score.appendChild(runninScore);
+                    // alert(humanChoice+" vs "+computerChoice+ "\n You lose");
                 } else {
-                    alert("Draw! Choose again");
+                    headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
+                    score.appendChild(headScore);
+                    runninScore.textContent += ("game "+count+" : "+"Draw!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
+                    score.appendChild(runninScore);
+                    // alert("Draw! Choose again");
                 }
 
             } else {
@@ -94,23 +167,55 @@
 
         let humanScore = 0;
         let computerScore = 0;
+        let count = 1;
         // playRound(humanSelection,computerSelection)
 
         function playGame () {
-           
-
-            for (let i = 1; i < 6; i++) {
-                let humanSelection = getHumanChoice();
+            if (humanScore === 5 || computerScore === 5) {
+                alert("the game is ended! \n refresh to play again");
+                
+            } else {
+                let humanSelection = getHumanChoice;
                 let computerSelection = getComputerChoice();
-        
-                playRound(humanSelection,computerSelection);
-            }
-            alert("final score >> "+"you "+humanScore+": "+computerScore+" computer")
 
+            
+                playRound(humanSelection,computerSelection);
+                count += 1;
+                if (humanScore === 5) {
+                    finalScore.textContent = ("YOU WIN!");
+                    score.appendChild(finalScore);
+                } else if (computerScore === 5) {
+                    finalScore.textContent = ("YOU LOSE!");
+                    score.appendChild(finalScore);
+                }
+            }
         }
 
-        playGame()
+        //show the result of each round 
+        //create variable
+        const score = document.createElement("div");
+        const headScore = document.createElement("h1");
+        const runninScore = document.createElement("p");
+        const finalScore = document.createElement("p");
+
+        headScore.classList.add("headScore");
+        runninScore.classList.add("runninScore");
+        finalScore.classList.add("finalScore");
+
+        runninScore.setAttribute('style', 'white-space: pre;');
+
+        div.appendChild(score);
+        score.appendChild(headScore);
+        // score.appendChild(runninScore);
+        score.appendChild(finalScore);
+       
+        //style tou
         
+
+     
+        
+        
+
 
     
     </script>
