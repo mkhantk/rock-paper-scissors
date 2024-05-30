@@ -10,6 +10,18 @@
 <body>
     <div id="container">
         <div class="header">Rock Paper Scissors</div>
+        <!-- <div class="score"></div> -->
+        <div class="display">
+            <div class="you">
+                <label for="you">You</label>
+                <div class="youD"></div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="com">
+                <label for="com">Com</label>
+                <div class="comD"></div>
+            </div>
+        </div>
         <div class="btn">
             <button id="rock">&#9994;</button>
             <button id="paper">&#9995;</button>
@@ -68,18 +80,27 @@
         const paperB = document.querySelector("#paper");
         const scissorsB = document.querySelector("#scissors");
 
+        // const headScore = document.querySelector(".score");
+        const display = document.querySelector(".display");
+        const youD = display.querySelector(".youD");
+        const comD = display.querySelector(".comD");
+
         rockB.addEventListener("click", () => {
-            getHumanChoice = "rock"
+            getHumanChoice = "rock";
+            youD.textContent = rockB.textContent;
+
             // console.log(getHumanChoice);
             playGame()
         });
         paperB.addEventListener("click", () => {
-            getHumanChoice = "paper"
+            getHumanChoice = "paper";
+            youD.textContent=paperB.textContent;
             // console.log(getHumanChoice);
             playGame()
         });
         scissorsB.addEventListener("click", () => {
-            getHumanChoice = "scissors"
+            getHumanChoice = "scissors";
+            youD.textContent=scissorsB.textContent;
             // console.log(getHumanChoice);
             playGame()
         });
@@ -92,6 +113,7 @@
         function playRound (humanChoice,computerChoice) {
             if (humanChoice === "rock") {
                 if (computerChoice === "scissors") {
+                    comD.textContent=scissorsB.textContent;
                     humanScore++
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
@@ -101,6 +123,7 @@
                     
 
                 } else if (computerChoice === "paper") {
+                    comD.textContent=paperB.textContent;
                     computerScore++
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
@@ -108,6 +131,7 @@
                     score.appendChild(runninScore);
                     // alert(humanChoice+" vs "+computerChoice+ "\n You lose");
                 } else {
+                    comD.textContent=rockB.textContent;
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
                     runninScore.textContent += ("game "+count+" : "+"Draw!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
@@ -116,6 +140,7 @@
                 }
             } else if (humanChoice === "paper") {
                 if (computerChoice === "rock") {
+                    comD.textContent=rockB.textContent;
                     humanScore++
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
@@ -124,6 +149,7 @@
                     // alert(humanChoice+" vs "+computerChoice+ "\n You win!");
 
                 } else if (computerChoice === "scissors") {
+                    comD.textContent=scissorsB.textContent;
                     computerScore++
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
@@ -131,6 +157,7 @@
                     score.appendChild(runninScore);
                     // alert(humanChoice+" vs "+computerChoice+ "\n You lose");
                 } else {
+                    comD.textContent=paperB.textContent;
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
                     runninScore.textContent += ("game "+count+" : "+"Draw!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
@@ -139,6 +166,7 @@
                 }
             } else if (humanChoice === "scissors") {
                 if (computerChoice === "paper") {
+                    comD.textContent=paperB.textContent;
                     humanScore++
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
@@ -147,6 +175,7 @@
                     // alert(humanChoice+" vs "+computerChoice+ "\n You win!");
 
                 } else if (computerChoice === "rock") {
+                    comD.textContent=rockB.textContent;
                     computerScore++
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
@@ -154,6 +183,7 @@
                     score.appendChild(runninScore);
                     // alert(humanChoice+" vs "+computerChoice+ "\n You lose");
                 } else {
+                    comD.textContent=scissorsB.textContent;
                     headScore.textContent = ("Score >>> "+humanScore+" : "+computerScore);
                     score.appendChild(headScore);
                     runninScore.textContent += ("game "+count+" : "+"Draw!"+ " (" + humanChoice+" vs "+computerChoice+") \r\n" );
@@ -208,7 +238,7 @@
 
         div.appendChild(score);
         score.appendChild(headScore);
-        // score.appendChild(runninScore);
+        score.appendChild(runninScore);
         score.appendChild(finalScore);
        
         //style tou
